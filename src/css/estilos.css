@@ -1,0 +1,87 @@
+body{
+    font-family: "Oxanium", cursive;
+    background-color: #000;
+    color: #fff;
+}
+
+body::before{/*cria pseudo, um elemento html*/
+    content: "";
+    background-image: url(../imagens/bg-desktop.jpg);
+    background-repeat: no-repeat; /*Para não repetir a imagem*/
+    background-size: cover; /*cover - cobrir, cobre tudo*/
+    width: 100%;
+    height: 100%;
+    position: absolute; /*posição absoluta*/
+    z-index: -1; /*Vai ficar por trás de tudo, fica por traz*/
+    opacity: 0.2; 
+}
+
+.cabecalho{
+    display: flex; /*Alinhamento do elemento*/
+    justify-content: center; /*Centralizar o elemento, alinhar horizontalmente*/
+}
+
+.selecao-de-personagens{
+    display: flex; /*Por padrão vem com flex-direction: row(linha)*/
+    align-items: center;
+    gap: 30px;
+    min-height: calc(100vh - 152px);/*vh - altura da janela do navegador*/
+    justify-content: center;
+}
+
+.selecao-de-personagens .lista-de-personagens{ /*Herarquia de pai e filha, só vai ser estilizada a lista de personagens que está dentro da selecao*/
+    display: flex;
+    flex-wrap: wrap; /*Quebra a linha para baixo quando não tem mais espaçamento*/
+    gap: 30px; /*Espaçamento*/
+    justify-content: center;
+}
+
+.selecao-de-personagens .personagens{
+    display: flex;
+    flex-direction: column;/*Alinha em coluna, vai descer os filhos*/
+    align-items: center; /*Texto alinhado no centro*/
+    max-width: 585px; /*largura máxima para deixar a tempestade como última, tudo feito antes no figma*/
+    gap: 25px; /*Entre o título e a lista*/
+}
+
+.selecao-de-personagens .personagens .titulo{
+    font-size: 20px;
+    letter-spacing: 4px;/*Espaçamento entre as letras*/
+    text-transform: uppercase; /*Transforma as letras em maiúsculas*/
+    border-bottom: 2px solid #47f4ff;
+    width: 100%;/*Vai ser sempre a largura do pai, no caso selecao-de-personagens*/
+    text-align: center;
+}
+
+.lista-de-personagens .personagem img{
+    width: 100%;
+    height: 100%;
+}
+
+.lista-de-personagens .personagem.selecionado{
+    box-shadow: 0px 0px 24px 5px #0271f7; /*Sombra*/
+}
+
+.personagem-selecionado{
+    text-align: center;
+    max-height: 530px; /*se tiver imagens maiores não vai ficar maior ue as outras, padroniza*/
+}
+
+.personagem-selecionado .personagem-grande{
+    width: 430px;
+    height: 430px;
+}
+
+.personagem-selecionado .nome-personagem{
+    border-bottom: 2px solid #47f4ff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.personagem-selecionado .descricao-personagem{
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    margin-top: 20px;
+    width: 420px;
+}
